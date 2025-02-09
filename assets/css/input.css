@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    overflow-y: scroll;
+    font-family: "Fira Sans", sans-serif;
+  }
+
+  input[type],
+  textarea,
+  select {
+    @apply appearance-none border-none ring-0 outline-hidden;
+
+    &:focus {
+      @apply border-none ring-0 outline-hidden;
+    }
+
+    &:focus-visible {
+      @apply border-none ring-0 outline-hidden;
+    }
+  }
+
+  button {
+    @apply cursor-pointer;
+  }
+}

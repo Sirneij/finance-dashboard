@@ -73,9 +73,18 @@ class SidebarController {
 
     // Update logo
     if (this.logo) {
+      const logoURL =
+        this.host !== null
+          ? `${this.host}/assets/images/logo.svg`
+          : "/assets/images/logo.svg";
+      const logoSmallURL = this.host
+        ? `${this.host}/assets/images/logo-small.svg`
+        : "/assets/images/logo-small.svg";
+
       this.logo.src = this.isSidebarOpen
-        ? `${this.host}/assets/images/logo.svg`
-        : `${this.host}/assets/images/logo-small.svg`;
+        ? logoURL.replace("null", ".")
+        : logoSmallURL.replace("null", ".");
+
       this.logo.classList.toggle("h-12", this.isSidebarOpen);
       this.logo.classList.toggle("h-8", !this.isSidebarOpen);
     }

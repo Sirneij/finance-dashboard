@@ -112,7 +112,8 @@ class SidebarController {
         (currentPath === "/" && linkPath === "/") ||
         (currentPath !== "/" &&
           linkPath !== "/" &&
-          currentPath.includes(linkPath));
+          currentPath.includes(linkPath)) ||
+        (currentPath === "/" && linkPath === "index.html");
 
       // Remove existing active classes
       link.classList.remove(

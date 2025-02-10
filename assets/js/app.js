@@ -73,13 +73,12 @@ class SidebarController {
 
     // Update logo
     if (this.logo) {
-      const logoURL =
-        this.host !== null
-          ? `${this.host}/assets/images/logo.svg`
-          : "/assets/images/logo.svg";
-      const logoSmallURL = this.host
-        ? `${this.host}/assets/images/logo-small.svg`
-        : "/assets/images/logo-small.svg";
+      const logoURL = this.host.includes("sirneij.github.io")
+        ? `${this.host}/finance-dashboard/assets/images/logo.svg`
+        : "./assets/images/logo.svg";
+      const logoSmallURL = this.host.includes("sirneij.github.io")
+        ? `${this.host}/finance-dashboard/assets/images/logo-small.svg`
+        : "./assets/images/logo-small.svg";
 
       this.logo.src = this.isSidebarOpen
         ? logoURL.replace("null", ".")

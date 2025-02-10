@@ -2,6 +2,7 @@ class SidebarController {
   constructor() {
     this.isSidebarOpen = true;
     this.isMobile = window.innerWidth < 768;
+    this.navLinks = document.querySelectorAll("[data-nav-link]");
 
     // Cache DOM elements
     this.sidebar = document.getElementById("sidebar");
@@ -19,6 +20,7 @@ class SidebarController {
     requestAnimationFrame(() => {
       this.checkWidth();
       this.updateUI(true); // true for initial load
+      this.highlightCurrentPage();
     });
 
     window.addEventListener("resize", this.checkWidth);
@@ -88,6 +90,38 @@ class SidebarController {
     // Update labels
     this.navLabels.forEach((label) => {
       label.style.display = this.isSidebarOpen ? "block" : "none";
+    });
+  }
+  highlightCurrentPage() {
+    const currentPath = window.location.pathname;
+
+    this.navLinks.forEach((link) => {
+      const linkPath = link.getAttribute("href");
+
+      const isActive =
+        currentPath === linkPath ||
+        (currentPath === "/" && linkPath === "/") ||
+        (currentPath !== "/" &&
+          linkPath !== "/" &&
+          currentPath.includes(linkPath));
+
+      // Remove existing active classes
+      link.classList.remove(
+        "bg-gray-100",
+        "text-primary-600",
+        "dark:bg-gray-700",
+        "dark:text-primary-500"
+      );
+
+      // Add active classes if current page
+      if (isActive) {
+        link.classList.add(
+          "bg-gray-100",
+          "text-primary-600",
+          "dark:bg-gray-700",
+          "dark:text-primary-500"
+        );
+      }
     });
   }
 }

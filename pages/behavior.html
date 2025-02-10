@@ -277,7 +277,324 @@
 
         <main class="h-[calc(100vh-4rem)] overflow-y-auto p-6">
           <section class="space-y-6">
-            <!-- Welcome Section -->
+            <!-- Hero Section -->
+            <section
+              class="shadow-xs flex flex-col space-y-4 rounded-lg bg-white p-4 sm:p-6 dark:bg-gray-800"
+            >
+              <div
+                class="flex flex-col items-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0"
+              >
+                <img
+                  src="https://avatars.githubusercontent.com/u/29700390?v=4"
+                  alt="John Owolabi Idogun"
+                  class="h-12 w-12 rounded-full ring-2 ring-indigo-500 sm:h-14 sm:w-14 md:h-16 md:w-16"
+                  loading="lazy"
+                />
+                <div class="text-center sm:text-left">
+                  <h1
+                    class="text-xl font-bold text-gray-900 sm:text-2xl md:text-3xl dark:text-white"
+                  >
+                    Financial Behavior
+                  </h1>
+                  <p
+                    class="text-sm text-gray-600 sm:text-base dark:text-gray-400"
+                  >
+                    Analyze and understand your spending patterns
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <!-- Input -->
+            <section>
+              <div class="grid gap-6 lg:grid-cols-2">
+                <!-- File Input Component -->
+                <div class="shadow-xs rounded-lg bg-white p-6 dark:bg-gray-800">
+                  <h2
+                    class="mb-4 text-lg font-semibold text-gray-900 dark:text-white"
+                  >
+                    Upload Financial Data
+                  </h2>
+                  <div class="flex w-full items-center justify-center">
+                    <label
+                      class="group relative flex h-64 w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 transition-all hover:border-indigo-500 hover:bg-blue-50 dark:border-gray-600 dark:bg-gray-700/50 dark:hover:border-indigo-400 dark:hover:bg-gray-700"
+                    >
+                      <div
+                        class="flex flex-col items-center justify-center pb-6 pt-5"
+                      >
+                        <!-- Upload Icon -->
+                        <svg
+                          class="mb-4 h-10 w-10 text-gray-400 transition-colors group-hover:text-indigo-500"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+                          />
+                        </svg>
+                        <p
+                          class="mb-2 text-sm text-gray-500 transition-colors group-hover:text-indigo-500 dark:text-gray-400"
+                        >
+                          <span class="font-semibold">Click to upload</span> or
+                          drag and drop
+                        </p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">
+                          PDF, CSV or Excel files
+                        </p>
+                      </div>
+                      <input
+                        type="file"
+                        class="hidden"
+                        accept=".pdf,.csv,.xlsx"
+                      />
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Manual Add Component -->
+                <div
+                  class="h-[384px] rounded-lg bg-white p-6 shadow-xs dark:bg-gray-800"
+                  id="manual-add"
+                >
+                  <h2
+                    class="sticky top-0 mb-4 bg-white text-lg font-semibold text-gray-900 dark:bg-gray-800 dark:text-white"
+                  >
+                    Manual Transaction Entry
+                  </h2>
+                  <div class="h-[calc(100%-2rem)] overflow-y-auto">
+                    <form class="space-y-4">
+                      <div class="space-y-1">
+                        <label
+                          class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                          for="date"
+                        >
+                          Date
+                        </label>
+                        <input
+                          type="date"
+                          name="date"
+                          class="block w-full rounded-md border-gray-300 bg-white px-4 py-2 text-gray-900 shadow-xs transition-colors focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-indigo-400 dark:focus:ring-indigo-400 dark:focus:ring-offset-gray-800"
+                        />
+                      </div>
+
+                      <div class="space-y-1">
+                        <label
+                          class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                          for="description"
+                        >
+                          Description
+                        </label>
+                        <input
+                          type="text"
+                          name="description"
+                          placeholder="Enter transaction description"
+                          class="block w-full rounded-md border-gray-300 bg-white px-4 py-2 text-gray-900 shadow-xs transition-colors focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-indigo-400 dark:focus:ring-indigo-400 dark:focus:ring-offset-gray-800"
+                        />
+                      </div>
+
+                      <div class="space-y-1">
+                        <label
+                          class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                          for="amount"
+                        >
+                          Amount
+                        </label>
+                        <input
+                          type="text"
+                          inputmode="decimal"
+                          name="amount"
+                          placeholder="0.00"
+                          class="block w-full rounded-md border-gray-300 bg-white px-4 py-2 text-gray-900 shadow-xs transition-colors focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-indigo-400 dark:focus:ring-indigo-400 dark:focus:ring-offset-gray-800"
+                        />
+                      </div>
+
+                      <div class="space-y-1">
+                        <label
+                          class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                          for="balance"
+                        >
+                          Balance
+                        </label>
+                        <input
+                          type="text"
+                          inputmode="decimal"
+                          name="balance"
+                          placeholder="0.00"
+                          class="block w-full rounded-md border-gray-300 bg-white px-4 py-2 text-gray-900 shadow-xs transition-colors focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-indigo-400 dark:focus:ring-indigo-400 dark:focus:ring-offset-gray-800"
+                        />
+                      </div>
+
+                      <button
+                        type="submit"
+                        class="w-full rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-hidden dark:bg-indigo-500 dark:hover:bg-indigo-600 dark:focus:ring-indigo-400 dark:focus:ring-offset-gray-800"
+                      >
+                        Add Transaction
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Charts Section -->
+            <section>
+              <div class="grid gap-6 lg:grid-cols-2">
+                <!-- Anomaly/Suspicious Transactions -->
+                <div class="shadow-xs rounded-lg bg-white p-6 dark:bg-gray-800">
+                  <h2
+                    class="mb-4 text-lg font-semibold text-gray-900 dark:text-white"
+                  >
+                    Suspicious Transactions
+                  </h2>
+                  <div class="max-h-64 space-y-4 overflow-y-auto">
+                    <!-- Example Anomaly Cards -->
+                    <div
+                      class="rounded-sm border-l-4 border-red-500 bg-red-50 p-4 dark:bg-gray-700"
+                    >
+                      <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                          <p class="text-sm text-gray-600 dark:text-gray-300">
+                            Jan 15, 2024
+                          </p>
+                          <p
+                            class="mt-1 font-medium text-gray-900 dark:text-white"
+                          >
+                            Unusual Large Withdrawal
+                          </p>
+                        </div>
+                        <span
+                          class="font-semibold text-red-600 dark:text-red-400"
+                        >
+                          $5,000.00
+                        </span>
+                      </div>
+                      <p
+                        class="mt-2 flex items-center space-x-1 text-sm text-red-600 dark:text-red-400"
+                      >
+                        <svg
+                          class="h-4 w-4"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                          />
+                        </svg>
+                        <span class="ml-1"
+                          >Amount exceeds typical spending pattern</span
+                        >
+                      </p>
+                    </div>
+
+                    <!-- Empty State (hidden by default) -->
+                    <div class="hidden text-center py-8">
+                      <p class="text-gray-600 dark:text-gray-400">
+                        No anomalies found
+                      </p>
+                      <p class="text-sm text-gray-500">
+                        No suspicious transactions found in your account.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Spending Categories Chart -->
+                <div
+                  class="shadow-xs group relative rounded-lg bg-white p-6 transition-all duration-300 dark:bg-gray-800"
+                >
+                  <!-- Fullscreen button -->
+                  <button
+                    class="absolute right-2 top-2 rounded-lg bg-gray-100 p-2 opacity-0 transition-opacity group-hover:opacity-100 dark:bg-gray-700"
+                    aria-label="Enter fullscreen"
+                  >
+                    <svg
+                      class="h-5 w-5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M4 8V4m0 0h4M4 4l5 5m11-5v4m0-4h-4m4 4l-5-5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4-4l-5 5"
+                      />
+                    </svg>
+                  </button>
+
+                  <h2
+                    class="mb-4 text-lg font-semibold text-gray-900 dark:text-white"
+                  >
+                    Spending Categories
+                  </h2>
+                  <div class="h-64 transition-all duration-300">
+                    <!-- Placeholder for ApexCharts -->
+                    <div id="spending-categories-chart"></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Insights Section -->
+            <section>
+              <div class="grid gap-6 sm:grid-cols-2">
+                <!-- Example Insight Card - Positive Trend -->
+                <div class="rounded-lg bg-white p-6 shadow-xs dark:bg-gray-800">
+                  <div class="flex items-center justify-between">
+                    <h3
+                      class="text-lg font-medium text-gray-900 dark:text-white"
+                    >
+                      Savings Rate
+                    </h3>
+                    <span class="text-lg font-bold text-green-500">+15%</span>
+                  </div>
+                  <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                    Your savings have increased compared to last month, showing
+                    improved financial habits.
+                  </p>
+                </div>
+
+                <!-- Example Insight Card - Negative Trend -->
+                <div class="rounded-lg bg-white p-6 shadow-xs dark:bg-gray-800">
+                  <div class="flex items-center justify-between">
+                    <h3
+                      class="text-lg font-medium text-gray-900 dark:text-white"
+                    >
+                      Entertainment Spending
+                    </h3>
+                    <span class="text-lg font-bold text-red-500">-8%</span>
+                  </div>
+                  <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                    Your entertainment expenses have decreased, indicating more
+                    conservative spending in this category.
+                  </p>
+                </div>
+
+                <!-- Empty State (initially hidden) -->
+                <div
+                  class="col-span-2 flex min-h-[200px] items-center justify-center hidden"
+                >
+                  <div class="text-center">
+                    <h3
+                      class="text-lg font-medium text-gray-900 dark:text-white"
+                    >
+                      No insights available
+                    </h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                      No insights available for your account.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
           </section>
         </main>
       </div>

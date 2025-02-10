@@ -3,6 +3,7 @@ class SidebarController {
     this.isSidebarOpen = true;
     this.isMobile = window.innerWidth < 768;
     this.navLinks = document.querySelectorAll("[data-nav-link]");
+    this.host = window.location.origin;
 
     // Cache DOM elements
     this.sidebar = document.getElementById("sidebar");
@@ -73,8 +74,8 @@ class SidebarController {
     // Update logo
     if (this.logo) {
       this.logo.src = this.isSidebarOpen
-        ? "/assets/images/logo.svg"
-        : "/assets/images/logo-small.svg";
+        ? `${this.host}/assets/images/logo.svg`
+        : `${this.host}/assets/images/logo-small.svg`;
       this.logo.classList.toggle("h-12", this.isSidebarOpen);
       this.logo.classList.toggle("h-8", !this.isSidebarOpen);
     }
